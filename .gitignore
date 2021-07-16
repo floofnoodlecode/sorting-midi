@@ -1,0 +1,7 @@
+**/__pycache__/
+.idea/
+out/
+*.pyc
+*.sf2
+audio.mid
+audio.wav
