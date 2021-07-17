@@ -58,7 +58,7 @@ class Env:
 					return
 
 				if code.co_filename == __file__:
-					# If stack reaches back to self.run than this is a function called by the sort
+					# If stack reaches back to self.run then this is a function called by the sort, not from Env
 					if self.run.__func__.__code__ == code:
 						break
 
