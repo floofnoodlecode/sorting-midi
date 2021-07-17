@@ -3,7 +3,7 @@ Sorting algorithms visualization and sonification with MIDI.
 
 **Youtube video**: https://youtu.be/MAGZo_FqQBI
 
-![preview](./static/github_preview.gif)
+![preview](./static/github_preview.GIF)
 
 ## How it works
 Each sorting algorithm is implemented so that it uses 3 basic array operations:
