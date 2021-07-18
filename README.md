@@ -5,7 +5,7 @@ Sorting algorithms visualization and sonification with MIDI.
 
 ![preview](./static/github_preview.GIF)
 
-## How it works
+# How it works
 Each sorting algorithm is implemented so that it uses 3 basic array operations:
 1. CMP: compare the values of two locations in memory
 2. SWAP: swap the values of two locations in memory
@@ -21,7 +21,7 @@ These operations are recorded and then converted into MIDI notes:
 
 For algorithms that use auxiliary memory arrays (mergesort), these are represented as well, with the same rules as above, but they can use a different MIDI instrument.
 
-## Requirements
+# Requirements
 **Python 3.8+**
 
 **Python modules**:
@@ -36,7 +36,7 @@ For algorithms that use auxiliary memory arrays (mergesort), these are represent
 - TiMidity++ (for converting MIDI to WAV): https://sourceforge.net/projects/timidity/
 
 
-## 21 Sorting Algorithms:
+# 21 Sorting Algorithms:
 1. Bitonic sort
 2. Bubble sort
 3. Cocktail Shaker sort
