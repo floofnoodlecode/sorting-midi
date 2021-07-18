@@ -1,5 +1,5 @@
 # sorting-midi
-Sorting algorithms visualization and sonification with MIDI.
+Sorting algorithms visualization and sonification with matlotlib and MIDI.
 
 **Youtube video**: https://youtu.be/MAGZo_FqQBI
 
