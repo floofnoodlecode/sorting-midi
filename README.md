@@ -13,7 +13,7 @@ Each sorting algorithm is implemented so that it uses 3 basic array operations:
 
 These operations are recorded and then converted into MIDI notes:
 - The **pitch** of the notes depends on the memory address accessed. Higher addresses result in higher pitch.
-- The **duration** of the notes depends on the number of python `opcodes` executed between operations. See env.__init__.py, _local_trace() and _global_trace(), for the implementation. `sys.settrace` is used to count the `opcodes`.
+- The **duration** of the notes depends on the number of python `opcodes` executed between operations. See env/__init__.py, _local_trace() and _global_trace(), for the implementation. `sys.settrace` is used to count the `opcodes`.
 - The **channel** in which a note is generated depends on the array operation:
     - CMP: both left channel (colored green)
     - SWAP: both right channel (colored red)
