@@ -14,12 +14,14 @@ from tqdm import tqdm
 from env import Env
 from env.events import *
 
-DEFAULT_TEMPO = 500_000
+DEFAULT_BPM = 120
 DEFAULT_TICKS_PER_BEAT = 480
+TIMIDITY = 'timidity.exe'
 
 
-def generate_audio(env: Env, tempo=DEFAULT_TEMPO, ticks_per_beat=DEFAULT_TICKS_PER_BEAT, filename='audio.wav'):
+def generate_audio(env: Env, bpm=DEFAULT_BPM, ticks_per_beat=DEFAULT_TICKS_PER_BEAT, filename='audio.wav'):
 	env = deepcopy(env)
+	tempo = mido.bpm2tempo(bpm)
 
 	blocks = env.mem.blocks
 	events = env.events
@@ -76,7 +78,7 @@ def generate_audio(env: Env, tempo=DEFAULT_TEMPO, ticks_per_beat=DEFAULT_TICKS_P
 	mid.save(midi_outfile)
 
 	subprocess.run([
-		'timidity.exe',
+		TIMIDITY,
 		'--preserve-silence',
 		'-c', 'timidity_config.cfg',
 		'--voice-lpf=d',
@@ -85,7 +87,7 @@ def generate_audio(env: Env, tempo=DEFAULT_TEMPO, ticks_per_beat=DEFAULT_TICKS_P
 		'-o', filename
 	])
 
-def generate_animation(env: Env, start_delay, title='', tempo=DEFAULT_TEMPO, ticks_per_beat=DEFAULT_TICKS_PER_BEAT, filename='anim.mp4', figsize=(12.80,7.20)):
+def generate_animation(env: Env, start_delay, title='', bpm=DEFAULT_BPM, ticks_per_beat=DEFAULT_TICKS_PER_BEAT, filename='anim.mp4', figsize=(12.80,7.20)):
 	COLOR_IDLE = 'white'
 	COLORS_CMP = ['limegreen'] * 2
 	COLORS_SWAP = ['red'] * 2
@@ -94,6 +96,7 @@ def generate_animation(env: Env, start_delay, title='', tempo=DEFAULT_TEMPO, tic
 	TIMEWINDOW = 2
 
 	env = deepcopy(env)
+	tempo = mido.bpm2tempo(bpm)
 
 	blocks = env.mem.blocks
 	events = env.events

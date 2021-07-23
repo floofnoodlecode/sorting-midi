@@ -5,6 +5,13 @@ Sorting algorithms visualization and sonification with Matplotlib and MIDI.
 
 ![preview](./static/github_preview.GIF)
 
+# Stoogesort solo
+Stoogesort has a really nice rhythm to it, so I made a 3 minute version with just this sorting algorithm. The array is already sorted so no swaps are made, which would break the nice rhythm. It also has a slower tempo at 90 BPM, instead of the original 120 BPM.
+
+**Stoogesort video**: https://youtu.be/X83L1FvMDWI
+
+![stoogesort_preview](./static/stoogesort_preview.GIF)
+
 # How it works
 Each sorting algorithm is implemented so that it uses 3 basic array operations:
 1. CMP: compare the values of two locations in memory
@@ -35,6 +42,21 @@ For algorithms that use auxiliary memory arrays (mergesort), these are represent
 - ffmpeg (in PATH)
 - TiMidity++ (for converting MIDI to WAV): https://sourceforge.net/projects/timidity/
 
+# How to run
+### Rendering
+```
+python main.py -s SORT -n SIZE [--bpm BPM]
+```
+`SORT` is the filename of a sorting algorithm from `sorts/`. `SIZE` is the array size to use for the sort. The values in the array are initialized randomly. `BPM` dictates the tempo of the notes (default 120). 
+
+The path to the `TiMidity` executable is specified in `render.py`, using `TIMIDITY = 'timidity.exe'`. `timidity.exe` is provided in the repo, but it only works on Windows. For Linux and Mac you can download TiMidity from the link above, in the Requirements section.
+
+### Testing
+
+You can test that all algorithms in `sorts/` work correctly by running `tests/test_sorts.py`.
+```
+python -m pytest
+```
 
 # 21 Sorting Algorithms:
 1. Bitonic sort

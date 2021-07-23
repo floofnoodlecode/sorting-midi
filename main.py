@@ -39,11 +39,13 @@ def cmp_perfect(a, b):
 
 def main():
 	argparse = ArgumentParser()
-	argparse.add_argument('-s', '--sort', type=str, help='Sorting algorithm function name (e.g. bubblesort, quicksort_lomuto, etc.')
-	argparse.add_argument('-n', '--size', type=int, help='Array size')
+	argparse.add_argument('-s', '--sort', type=str, required=True, help='Sorting algorithm function name (e.g. bubblesort, quicksort_lomuto, etc.')
+	argparse.add_argument('-n', '--size', type=int, required=True, help='Array size')
+	argparse.add_argument('--bpm', type=float, default=120, help='Beats per minute')
 	args = argparse.parse_args()
 
 	arr = [randint(1, args.size) for _ in range(args.size)]
+	# arr = [i+1 for i in range(args.size)]
 	print(arr)
 	cmp = cmp_perfect
 
@@ -61,8 +63,8 @@ def main():
 	audio_filename = OUTDIR + SORT.__name__ + '_audio.wav'
 	anim_filename = OUTDIR + SORT.__name__ + '_anim.mp4'
 
-	generate_audio(env, filename=audio_filename)
-	generate_animation(env, start_delay=2, title=SORT2TITLE[SORT], filename=anim_filename)
+	generate_audio(env, filename=audio_filename, bpm=args.bpm)
+	generate_animation(env, start_delay=2, title=SORT2TITLE[SORT], filename=anim_filename, bpm=args.bpm)
 
 	subprocess.run([
 		'ffmpeg',
