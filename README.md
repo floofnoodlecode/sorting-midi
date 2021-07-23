@@ -10,7 +10,7 @@ Stoogesort has a really nice rhythm to it, so I made a 3 minute version with jus
 
 **Stoogesort video**: https://youtu.be/X83L1FvMDWI
 
-![stoogesort_preview](./static/stoogesort_preview.GIF)
+![stoogesort_preview](./static/stoogesort_preview.gif)
 
 # How it works
 Each sorting algorithm is implemented so that it uses 3 basic array operations:
